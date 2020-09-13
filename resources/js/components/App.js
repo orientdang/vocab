@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { routes } from "../routes";
+import Header from "./Header";
+
+
 
 function RouteWithSubRoutes(route) {
     return (
@@ -20,6 +23,7 @@ function App() {
     return (
         <Router >
             <div >
+                <Header/>
                 <Switch >
                     { routes.map((route, i) => (
                         <RouteWithSubRoutes key={ i } { ...route } />

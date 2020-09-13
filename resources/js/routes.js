@@ -1,17 +1,22 @@
 import Home from "./screen/Home";
-import React, { Component } from 'react';
-import NoMatch from "./components/NoMatch";
+import React from 'react';
+import NotFound from "./components/NotFound";
+import { PATHS } from "./constants";
+import Practice from "./screen/Practice";
 
 export const routes = [
     {
-        path: "/",
+        path: PATHS.HOME,
         exact: true,
         component: Home
     },
     {
-        path: '*',
-        component: NoMatch
+        path: PATHS.PRACTICE,
+        component: Practice
+    },
+    {
+        path: PATHS.NOT_FOUND,
+        component: NotFound
     }
 ];
-
 
