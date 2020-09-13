@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { routes } from "../routes";
+
+function RouteWithSubRoutes(route) {
+    return (
+        <Route
+            path={ route.path }
+            exact={ route.exact }
+            render={ props => (
+                // pass the sub-routes down to keep nesting
+                <route.component { ...props } routes={ route.routes } />
+            ) }
+        />
+    );
+}
 
 function App() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-body">this is laravel react</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Router >
+            <div >
+                <Switch >
+                    { routes.map((route, i) => (
+                        <RouteWithSubRoutes key={ i } { ...route } />
+                    )) }
+                </Switch >
+            </div >
+        </Router >
     );
 }
 

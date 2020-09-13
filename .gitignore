@@ -19,6 +19,8 @@ composer.lock
 org.eclipse.wst.validation.prefs-.settings
 composer.phar
 .DS_Store
+/public/js
+/public/css
 /public/hot
 /public/storage
 /public/static
